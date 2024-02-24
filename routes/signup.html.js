@@ -9,16 +9,19 @@ const userModel = require("../models/user", {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //creating one
-signupRouter.post("/submitForm", async (req, res) => {
-  try {
-    const new_user = new userModel(req.body);
-    await new_user.save();
-    res.json({
-      redirectTo: "https://akri.onrender.com/",
-    });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+signupRouter.post(
+  "https://akri-backend.onrender.com/submitForm",
+  async (req, res) => {
+    try {
+      const new_user = new userModel(req.body);
+      await new_user.save();
+      res.json({
+        redirectTo: "https://akri.onrender.com/",
+      });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
   }
-});
+);
 
 module.exports = signupRouter;
