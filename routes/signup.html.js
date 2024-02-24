@@ -9,7 +9,7 @@ const userModel = require("../models/user", {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //creating one
-signupRouter.post("/", async (req, res) => {
+signupRouter.post("/submitForm", async (req, res) => {
   try {
     const new_user = new userModel(req.body);
     await new_user.save();
