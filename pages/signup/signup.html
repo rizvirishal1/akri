@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-<script src="../../../drop_down_box.jsx"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
     <link rel="stylesheet" href="signup.css" />
@@ -12,7 +8,7 @@
   <body>
     <h1 id="akri"><b>AKRI</b></h1>
     <div class="data">
-      <form action="">
+      <form action="https://akri-backend.onrender.com/submitForm" method="post">
         <label for="name">Name</label>
         <input
           type="text"
@@ -71,14 +67,56 @@
         />
         <div id="root"></div>
 
-          <input
-            type="button"
-            id="next"
-            value="Next"
-            style="position: absolute; bottom: 3; right: 0; border-radius: 12px"
-          />
+        <button  id="next"  onclick="submitForm()" >Submit</button>
         </div>
       </form>
     </div>
+
+<!--SCRIPT-->
+<script>
+  async function submitForm() {
+    try {
+      const formData = gatherFormData(); 
+
+      const response = await fetch('https://your-backend-service.onrender.com/submitForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        handleSuccessRedirect(responseData.redirectTo);
+      } else {
+        handleFormSubmissionError();
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      // Handle unexpected errors, show an error message, etc.
+    }
+  }
+
+  function gatherFormData() {
+    // Implement this function to gather form data and return it as an object
+    return {
+      field1: document.getElementById('field1').value,
+      field2: document.getElementById('field2').value,
+      // Add more fields as needed
+    };
+  }
+
+  function handleSuccessRedirect(redirectTo) {
+    window.location.href = redirectTo;
+  }
+
+  function handleFormSubmissionError() {
+    console.error('Error submitting form');
+    // Handle specific form submission errors, show an error message, etc.
+  }
+</script>
+
+
   </body>
 </html>
