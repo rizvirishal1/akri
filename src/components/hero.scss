@@ -1,0 +1,42 @@
+.gradient-background {
+    background: linear-gradient(300deg,  #2a58cc,#00bfff, #6deb95);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+    min-height: 90vh;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+ 
+  .anc{
+    position: relative;
+  }
+
+  .arrow{
+    transform: scaleX(-1);
+
+    height: 100px;  
+    width: 150px;   
+    position: relative;
+    right: -300px;
+    top: 0px;
+    @media (max-width: 991px) {
+         display: none;
+    }
+
+  }
+
+  .signup{
+    position: relative;
+    left: 10px;
+  }
+  

@@ -1,0 +1,31 @@
+.signup_cont{
+    margin-top: 50px;
+    max-width: 500px;
+}
+.ut{
+    background-color: grey;
+    color: white;
+}
+
+.st_form, .dist_form{
+    min-width: 240px;
+
+
+}
+
+.dist_form{
+    margin-top: 20px;
+}
+
+.State,.District{
+    margin-bottom: 10px;
+}
+
+.signup_title{
+    background: linear-gradient(to top, rgb(16, 93, 225), aqua);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 5px;
+    text-align: center;
+}
